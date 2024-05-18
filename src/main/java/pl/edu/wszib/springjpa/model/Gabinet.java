@@ -1,9 +1,17 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Gabinet {
 
+  @Id
+  @GeneratedValue
   private Integer id;
   private Integer numer;
+
+ @ManyToOne
+ @JoinColumn
   private Lekarz lekarz;
 
   public Integer getId() {

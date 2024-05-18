@@ -1,11 +1,23 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.*;
+
 import java.time.Instant;
 
+@Entity
 public class Wizyta {
 
+
+  @Id
+  @GeneratedValue
   private Integer id;
+
+  @ManyToOne
+  @JoinColumn
   private Gabinet gabinet;
+
+  @ManyToOne
+  @JoinColumn
   private Pacjent pacjent;
   private Instant data;
 
