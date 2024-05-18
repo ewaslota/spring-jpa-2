@@ -1,12 +1,21 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
 public class Zajęcia {
 
+  @Id
+  @GeneratedValue
   private Integer id;
   private String nazwa;
+  @ManyToMany
+  @JoinTable
   private List<Student> student;
+
+  @ManyToOne
+  @JoinColumn
   private Prowadzacy prowadzacy;
 
   public Integer getId() {
