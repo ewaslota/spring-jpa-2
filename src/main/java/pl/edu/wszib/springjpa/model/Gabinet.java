@@ -9,9 +9,8 @@ public class Gabinet {
   @GeneratedValue
   private Integer id;
   private Integer numer;
-
- @ManyToOne
- @JoinColumn
+  @ManyToOne
+  @JoinColumn
   private Lekarz lekarz;
 
   public Integer getId() {

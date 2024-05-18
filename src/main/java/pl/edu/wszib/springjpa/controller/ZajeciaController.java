@@ -19,8 +19,12 @@ public class ZajeciaController {
     }
 
     @GetMapping
-    public List<ListZajeciaDTO> list() {
-        List<Zajecia> zajecias = this.service.list();
+    public List<ListZajeciaDTO> list(
+            @RequestParam(required = false) String nazwa,
+            @RequestParam(required = false) Long studentId
+    ) {
+        List<Zajecia> zajecias = nazwa != null && studentId != null ?
+                service.list(nazwa, studentId) : service.list();
         List<ListZajeciaDTO> out = new ArrayList<>();
         for (Zajecia z : zajecias) {
             out.add(ListZajeciaDTO.fromZajecia(z));

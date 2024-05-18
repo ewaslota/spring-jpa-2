@@ -7,7 +7,6 @@ import java.time.Instant;
 @Entity
 public class Wizyta {
 
-
   @Id
   @GeneratedValue
   private Integer id;

@@ -26,6 +26,10 @@ public class ZajeciaService implements CrudService<Zajecia, Long> {
         return repository.findAll();
     }
 
+    public List<Zajecia> list(String nazwa, Long studentId) {
+        return repository.findByNazwaContainingIgnoreCaseAndStudentId(nazwa, studentId);
+    }
+
     @Override
     public Zajecia get(Long aLong) {
         return repository.findById(aLong)
