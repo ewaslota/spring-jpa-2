@@ -6,11 +6,13 @@ import jakarta.persistence.Id;
 
 @Entity
 public class DetaleOrganizacji {
+
     @Id
     @GeneratedValue
     private Long id;
+
     private String adres;
-    private String kodPoczowy;
+    private String kodPocztowy;
     private String miasto;
     private String kraj;
 
@@ -30,12 +32,12 @@ public class DetaleOrganizacji {
         this.adres = adres;
     }
 
-    public String getKodPoczowy() {
-        return kodPoczowy;
+    public String getKodPocztowy() {
+        return kodPocztowy;
     }
 
-    public void setKodPoczowy(String kodPoczowy) {
-        this.kodPoczowy = kodPoczowy;
+    public void setKodPocztowy(String kodPocztowy) {
+        this.kodPocztowy = kodPocztowy;
     }
 
     public String getMiasto() {

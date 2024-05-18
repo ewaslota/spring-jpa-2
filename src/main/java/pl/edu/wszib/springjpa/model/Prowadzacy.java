@@ -1,16 +1,23 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Prowadzacy {
 
-  private Integer id;
+  @Id
+  @GeneratedValue
+  private Long id;
   private String imie;
   private String nazwisko;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

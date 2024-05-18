@@ -1,38 +1,38 @@
 package pl.edu.wszib.springjpa.service;
 
 import org.springframework.stereotype.Service;
-import pl.edu.wszib.springjpa.model.Organizacja;
-import pl.edu.wszib.springjpa.repository.OrganizacjaRepository;
+import pl.edu.wszib.springjpa.model.Student;
+import pl.edu.wszib.springjpa.repository.StudentRepository;
 
 import java.util.List;
 
 @Service
-public class OrganizacjaService implements CrudService<Organizacja, Long> {
+public class StudentService implements CrudService<Student, Long> {
 
-    private final OrganizacjaRepository repository;
+    private final StudentRepository repository;
 
-    public OrganizacjaService(OrganizacjaRepository repository) {
+    public StudentService(StudentRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public List<Organizacja> list() {
+    public List<Student> list() {
         return repository.findAll();
     }
 
     @Override
-    public Organizacja get(Long aLong) {
+    public Student get(Long aLong) {
         return repository.findById(aLong)
                 .get();
     }
 
     @Override
-    public Organizacja create(Organizacja organizacja) {
+    public Student create(Student organizacja) {
         return repository.save(organizacja);
     }
 
     @Override
-    public Organizacja update(Organizacja organizacja) {
+    public Student update(Student organizacja) {
         return repository.save(organizacja);
     }
 

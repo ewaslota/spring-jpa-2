@@ -1,18 +1,24 @@
 package pl.edu.wszib.springjpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
 public class Student {
 
-  private Integer id;
+  @Id
+  @GeneratedValue
+  private Long id;
   private String imie;
   private String nazwisko;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

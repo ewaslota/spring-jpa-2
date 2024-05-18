@@ -1,15 +1,19 @@
 package pl.edu.wszib.springjpa.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
-public class Zajęcia {
+@Entity
+public class Zajecia {
 
   @Id
   @GeneratedValue
-  private Integer id;
+  private Long id;
   private String nazwa;
+
   @ManyToMany
   @JoinTable
   private List<Student> student;
@@ -18,11 +22,11 @@ public class Zajęcia {
   @JoinColumn
   private Prowadzacy prowadzacy;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

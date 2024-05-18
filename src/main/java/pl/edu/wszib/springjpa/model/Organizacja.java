@@ -2,7 +2,9 @@ package pl.edu.wszib.springjpa.model;
 
 import jakarta.persistence.*;
 
+@Entity
 public class Organizacja {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -37,4 +39,3 @@ public class Organizacja {
         this.name = name;
     }
 }
-
