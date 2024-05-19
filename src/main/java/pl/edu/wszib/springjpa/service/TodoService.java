@@ -61,4 +61,8 @@ public class TodoService implements CrudService<Todo, Integer> {
     public int countByStatus(Todo.TodoStatus status) {
         return repository.countByStatus(status);
     }
+
+    public List<Todo> searchByStatus(Todo.TodoStatus status) {
+        return repository.findAllByStatus(status);
+    }
 }

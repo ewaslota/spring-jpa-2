@@ -16,6 +16,11 @@ public class TodoController {
         this.service = service;
     }
 
+    @GetMapping("/search/{status}")
+    public List<Todo> searchByStatus(@PathVariable Todo.TodoStatus status) {
+        return service.searchByStatus(status);
+    }
+
     @GetMapping("/count/{status}")
     public int countByStatus(@PathVariable Todo.TodoStatus status) {
         return service.countByStatus(status);
