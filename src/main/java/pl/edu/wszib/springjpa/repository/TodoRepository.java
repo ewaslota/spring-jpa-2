@@ -13,8 +13,9 @@ public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
     List<Todo> findAllByStatus(Todo.TodoStatus status);
 
-    List<Todo> findTop3ByStatusIsNotOrderByDueDateAsc(Todo.TodoStatus status);
-
-    @Query(value = "select top 3 * from todo where status != 'COMPLETED' order by due_date", nativeQuery = true)
+    @Query(value = "select top 3 * from todo where status != 'COMPLETED' order by due_date ", nativeQuery = true)
     List<Todo> upcoming();
+
+    List<Todo> findTop3ByStatusIsNotOrderByDueDate(Todo.TodoStatus status);
+
 }

@@ -21,7 +21,7 @@ public class TodoController {
         return service.upcoming();
     }
 
-    @GetMapping("search/{status}")
+    @GetMapping("/search/{status}")
     public List<Todo> searchByStatus(@PathVariable Todo.TodoStatus status) {
         return service.searchByStatus(status);
     }
@@ -30,7 +30,6 @@ public class TodoController {
     public int countByStatus(@PathVariable Todo.TodoStatus status) {
         return service.countByStatus(status);
     }
-
 
     @GetMapping
     public List<Todo> list(@RequestParam(required = false, defaultValue = "asc") String order) {

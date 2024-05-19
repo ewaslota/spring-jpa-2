@@ -30,7 +30,6 @@ public class TodoService implements CrudService<Todo, Integer> {
                         "title"
                 )
         );
-
     }
 
     @Override
@@ -40,6 +39,7 @@ public class TodoService implements CrudService<Todo, Integer> {
 
     @Override
     public Todo create(Todo todo) {
+        todo.setId(null);
         todo.setStatus(Todo.TodoStatus.NEW);
         return repository.save(todo);
     }
@@ -67,7 +67,7 @@ public class TodoService implements CrudService<Todo, Integer> {
     }
 
     public List<Todo> upcoming() {
-//        return repository.findTop3ByStatusIsNotOrderByDueDateAsc(Todo.TodoStatus.COMPLETED);
-        return repository.upcoming();
+//        return repository.upcoming();
+        return repository.findTop3ByStatusIsNotOrderByDueDate(Todo.TodoStatus.COMPLETED);
     }
 }
