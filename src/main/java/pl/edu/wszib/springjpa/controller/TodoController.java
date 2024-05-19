@@ -7,7 +7,7 @@ import pl.edu.wszib.springjpa.service.TodoService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/todos")
+@RequestMapping("/api/todos")
 public class TodoController {
 
     private final TodoService service;
@@ -31,9 +31,8 @@ public class TodoController {
         return service.create(todo);
     }
 
-    @PutMapping("/{id}")
-    public Todo update(@PathVariable Integer id, @RequestBody Todo todo) {
-        todo.setId(id);
+    @PutMapping
+    public Todo update(@RequestBody Todo todo) {
         return service.update(todo);
     }
 

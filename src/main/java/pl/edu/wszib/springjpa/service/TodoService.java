@@ -27,6 +27,7 @@ public class TodoService implements CrudService<Todo, Integer> {
 
     @Override
     public Todo create(Todo todo) {
+        todo.setId(null);
         todo.setStatus(Todo.TodoStatus.NEW);
         return repository.save(todo);
     }
