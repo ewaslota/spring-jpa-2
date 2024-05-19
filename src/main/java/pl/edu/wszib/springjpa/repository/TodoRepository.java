@@ -6,4 +6,6 @@ import pl.edu.wszib.springjpa.model.Todo;
 
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Integer> {
+    int countByStatus(Todo.TodoStatus status);
+
 }
