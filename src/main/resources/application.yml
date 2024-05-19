@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: eslota
-    password:
+    password: ${MORFEUSZ_PASSWORD}
     url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=eslota;encrypt=false;
   jpa:
     hibernate:
