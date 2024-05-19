@@ -1,5 +1,6 @@
 package pl.edu.wszib.springjpa.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.springjpa.model.Todo;
 import pl.edu.wszib.springjpa.repository.TodoRepository;
@@ -18,6 +19,18 @@ public class TodoService implements CrudService<Todo, Integer> {
     @Override
     public List<Todo> list() {
         return repository.findAll();
+    }
+
+    public List<Todo> list(String order) {
+        return repository.findAll(
+                Sort.by(
+                        order.equals("asc") ?
+                                Sort.Direction.ASC :
+                                Sort.Direction.DESC,
+                        "title"
+                )
+        );
+
     }
 
     @Override
@@ -43,5 +56,18 @@ public class TodoService implements CrudService<Todo, Integer> {
     @Override
     public void delete(Integer integer) {
         repository.deleteById(integer);
+    }
+
+    public int countByStatus(Todo.TodoStatus status) {
+        return repository.countByStatus(status);
+    }
+
+    public List<Todo> searchByStatus(Todo.TodoStatus status) {
+        return repository.findAllByStatus(status);
+    }
+
+    public List<Todo> upcoming() {
+//        return repository.findTop3ByStatusIsNotOrderByDueDateAsc(Todo.TodoStatus.COMPLETED);
+        return repository.upcoming();
     }
 }
