@@ -67,6 +67,7 @@ public class TodoService implements CrudService<Todo, Integer> {
     }
 
     public List<Todo> upcoming() {
+//        return repository.upcoming();
         return repository.findTop3ByStatusIsNotOrderByDueDate(Todo.TodoStatus.COMPLETED);
     }
 }
