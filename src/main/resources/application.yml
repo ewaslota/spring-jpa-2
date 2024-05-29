@@ -1,4 +1,6 @@
 spring:
+  profile:
+    active: mysql
   datasource:
     username: eslota
     password: ${MORFEUSZ_PASSWORD}
