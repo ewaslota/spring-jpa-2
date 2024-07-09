@@ -1,8 +1,11 @@
 spring:
+  profiles:
+    active: mysql
   datasource:
-    username: wreczyck
+    username: eslota
     password: ${MORFEUSZ_PASSWORD}
-    url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=wreczyck;encrypt=false;
+    url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=eslota;encrypt=false;
   jpa:
     hibernate:
       ddl-auto: create-drop
+
